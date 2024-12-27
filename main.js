@@ -7,7 +7,10 @@ XMLHttpRequest.prototype.removeEventListener = () => 0;
 
 Node.prototype.addEventListener = function (a, b, c) {
   switch (a) {
+    case "Error":
     case "MSFullscreenChange":
+    case "MSPointerDown":
+    case "MSPointerMove":
     case "auxclick":
     case "contextmenu":
     case "copy":
@@ -37,12 +40,16 @@ Node.prototype.addEventListener = function (a, b, c) {
     case "webkitfullscreenchange":
       break;
     default:
+      console.log(a);
       addEventListener.call(this, a, b, c);
   };
 };
 Node.prototype.removeEventListener = function (a, b, c) {
   switch (a) {
+    case "Error":
     case "MSFullscreenChange":
+    case "MSPointerDown":
+    case "MSPointerMove":
     case "contextmenu":
     case "error":
     case "mozfullscreenchange":
@@ -50,7 +57,9 @@ Node.prototype.removeEventListener = function (a, b, c) {
     case "webkitbeginfullscreen":
     case "webkitendfullscreen":
     case "webkitfullscreenchange":
+      break;
     default:
+      //console.log(a);
       removeEventListener.call(this, a, b, c);
   };
 };
@@ -61,7 +70,6 @@ HTMLHeadElement.prototype.appendChild = a => {
   src[119] != "z" && // src.slice(118, 122) != "/zti" &&
   document.head.insertBefore(a, null);
 };
-
 {
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
