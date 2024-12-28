@@ -88,7 +88,7 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       break;
     default:
       Element.prototype.setAttribute.call(this, a, b);
-  }
+  };
 }
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
@@ -111,7 +111,7 @@ HTMLHeadElement.prototype.appendChild = a => {
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
-    return url.slice(32, 38) != "report" &&
+    return url && url.slice(32, 38) != "report" &&
       fet(a, b);
   };
 }
