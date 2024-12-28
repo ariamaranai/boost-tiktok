@@ -1,6 +1,5 @@
 Object.seal = a => a;
-MediaSource.isTypeSupported = a => a == 'video/mp4;codecs="hev1.1.6.L120.90"';
-
+MediaSource.isTypeSupported = () => 1; // a == 'video/mp4;codecs="hev1.1.6.L120.90"';
 navigator.sendBeacon =
 XMLHttpRequest.prototype.addEventListener =
 XMLHttpRequest.prototype.removeEventListener = () => 0;
@@ -40,7 +39,6 @@ Node.prototype.addEventListener = function (a, b, c) {
     case "webkitfullscreenchange":
       break;
     default:
-      console.log(a);
       addEventListener.call(this, a, b, c);
   };
 };
@@ -59,10 +57,39 @@ Node.prototype.removeEventListener = function (a, b, c) {
     case "webkitfullscreenchange":
       break;
     default:
-      //console.log(a);
       removeEventListener.call(this, a, b, c);
   };
 };
+HTMLElement.prototype.setAttribute = function (a, b) {
+  switch (a) {
+    case "alt":
+    case "aria-atomic":
+    case "aria-autocomplete":
+    case "aria-controls":
+    case "aria-expaned":
+    case "aria-haspopup":
+    case "aria-label":
+    case "aria-labelledby":
+    case "aria-live":
+    case "aria-pressed":
+    case "aria-relevant":
+    case "aria-selected":
+    case "data-webpack":
+    case "loading":
+    case "role":
+    case "tabindex":
+      break;
+    case "class":
+      this.className = b;
+    case "id":
+    case "width":
+    case "height":
+      this[a] = b;
+      break;
+    default:
+      Element.prototype.setAttribute.call(this, a, b);
+  }
+}
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
   src &&
