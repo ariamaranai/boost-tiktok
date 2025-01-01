@@ -40,8 +40,8 @@ Node.prototype.addEventListener = function (a, b, c) {
       break;
     default:
       addEventListener.call(this, a, b, c);
-  };
-};
+  }
+}
 Node.prototype.removeEventListener = function (a, b, c) {
   switch (a) {
     case "Error":
@@ -58,8 +58,8 @@ Node.prototype.removeEventListener = function (a, b, c) {
       break;
     default:
       removeEventListener.call(this, a, b, c);
-  };
-};
+  }
+}
 HTMLElement.prototype.setAttribute = function (a, b) {
   switch (a) {
     case "alt":
@@ -74,21 +74,28 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-pressed":
     case "aria-relevant":
     case "aria-selected":
+    case "aria-valuenow":
+    case "aria-valuetext":
+    // case "content":
     case "data-webpack":
     case "loading":
     case "role":
     case "tabindex":
+    // case "title":
       break;
     case "class":
       this.className = b;
     case "id":
-    case "width":
     case "height":
+    case "href":
+    case "target":
+    case "width":
       this[a] = b;
       break;
     default:
+      console.log(a,b);
       Element.prototype.setAttribute.call(this, a, b);
-  };
+  }
 }
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
@@ -96,7 +103,7 @@ HTMLHeadElement.prototype.appendChild = a => {
   src[111] != "z" && // src.slice(110, 114) != "/zti" &&
   src[119] != "z" && // src.slice(118, 122) != "/zti" &&
   document.head.insertBefore(a, null);
-};
+}
 {
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
@@ -107,11 +114,11 @@ HTMLHeadElement.prototype.appendChild = a => {
       b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?bid=tiktok_pns_web_runtime" &&
       b != "https://mon.tiktokv.com/monitor_web/settings/browser-settings?bid=tiktok_webapp&store=1" &&
       open.call(this, a, b, c);
-  };
+  }
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
     return url && url.slice(32, 38) != "report" &&
       fet(a, b);
-  };
+  }
 }
