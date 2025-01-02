@@ -80,11 +80,11 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-valuenow":
     case "aria-valuetext":
     // case "content":
-    case "data-webpack":
+    // case "data-webpack":
     case "loading":
     case "role":
     case "tabindex":
-    // case "title":
+    case "title":
       break;
     case "class":
       this.className = b;
