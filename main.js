@@ -66,11 +66,14 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-atomic":
     case "aria-autocomplete":
     case "aria-controls":
-    case "aria-expaned":
+    case "aria-expanded":
+    case "aria-describedby":
+    case "aria-disabled":
     case "aria-haspopup":
     case "aria-label":
     case "aria-labelledby":
     case "aria-live":
+    case "aria-modal":
     case "aria-pressed":
     case "aria-relevant":
     case "aria-selected":
@@ -93,7 +96,6 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       this[a] = b;
       break;
     default:
-      console.log(a,b);
       Element.prototype.setAttribute.call(this, a, b);
   }
 }
