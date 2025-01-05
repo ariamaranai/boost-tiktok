@@ -1,8 +1,11 @@
 Object.seal = a => a;
-MediaSource.isTypeSupported = () => 1; // a == 'video/mp4;codecs="hev1.1.6.L120.90"';
+MediaSource.isTypeSupported = () => 1;
+
 navigator.sendBeacon =
 XMLHttpRequest.prototype.addEventListener =
 XMLHttpRequest.prototype.removeEventListener = () => 0;
+
+
 
 Node.prototype.addEventListener = function (a, b, c) {
   switch (a) {
@@ -79,8 +82,10 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-selected":
     case "aria-valuenow":
     case "aria-valuetext":
-    // case "content":
+     case "content":
     // case "data-webpack":
+    case "hrefLang":
+    case "letter-spacing":
     case "loading":
     case "role":
     case "tabindex":
@@ -88,6 +93,7 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       break;
     case "class":
       this.className = b;
+      break;
     case "id":
     case "height":
     case "href":
@@ -96,6 +102,7 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       this[a] = b;
       break;
     default:
+      console.log(a);
       Element.prototype.setAttribute.call(this, a, b);
   }
 }
