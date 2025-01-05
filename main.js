@@ -82,8 +82,10 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-selected":
     case "aria-valuenow":
     case "aria-valuetext":
-     case "content":
+    case "content":
+    case "decoding":
     // case "data-webpack":
+    case "fetchpriority":
     case "hrefLang":
     case "letter-spacing":
     case "loading":
@@ -97,12 +99,12 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "id":
     case "height":
     case "href":
+    case "srcSet":
     case "target":
     case "width":
       this[a] = b;
       break;
     default:
-      console.log(a);
       Element.prototype.setAttribute.call(this, a, b);
   }
 }
