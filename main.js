@@ -5,11 +5,8 @@ navigator.sendBeacon =
 XMLHttpRequest.prototype.addEventListener =
 XMLHttpRequest.prototype.removeEventListener = () => 0;
 
-
-
 Node.prototype.addEventListener = function (a, b, c) {
   switch (a) {
-    case "Error":
     case "MSFullscreenChange":
     case "MSPointerDown":
     case "MSPointerMove":
@@ -47,7 +44,6 @@ Node.prototype.addEventListener = function (a, b, c) {
 }
 Node.prototype.removeEventListener = function (a, b, c) {
   switch (a) {
-    case "Error":
     case "MSFullscreenChange":
     case "MSPointerDown":
     case "MSPointerMove":
@@ -55,6 +51,7 @@ Node.prototype.removeEventListener = function (a, b, c) {
     case "error":
     case "mozfullscreenchange":
     case "visibilitychange":
+    case "volumechange":
     case "webkitbeginfullscreen":
     case "webkitendfullscreen":
     case "webkitfullscreenchange":
