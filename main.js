@@ -79,6 +79,7 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "aria-selected":
     case "aria-valuenow":
     case "aria-valuetext":
+    case "color":
     case "content":
     case "decoding":
     // case "data-webpack":
@@ -87,6 +88,7 @@ HTMLElement.prototype.setAttribute = function (a, b) {
     case "letter-spacing":
     case "loading":
     case "role":
+    case "shape":
     case "tabindex":
     case "title":
       break;
