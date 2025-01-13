@@ -107,13 +107,22 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       Element.prototype.setAttribute.call(this, a, b);
   }
 }
-HTMLHeadElement.prototype.appendChild = a => {
-  let src = a.src;
-  src &&
-  src[111] != "z" && // src.slice(110, 114) != "/zti" &&
-  src[119] != "z" && // src.slice(118, 122) != "/zti" &&
-  document.head.insertBefore(a, null);
+
+{
+  let o = Object.freeze(0);
+  let createElement = document.createElement.bind(document);
+  document.createElement = a => a != "meta" ? createElement(a) : o; 
 }
+HTMLHeadElement.prototype.appendChild = a => {
+  if (typeof a != "number") {
+    let src = a.src;
+    src &&
+    src[111] != "z" && // src.slice(110, 114) != "/zti" &&
+    src[119] != "z" && // src.slice(118, 122) != "/zti" &&
+    document.head.insertBefore(a, null);
+  }
+}
+
 {
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
@@ -123,7 +132,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       b.slice(32, 38) != "report" &&
       b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?bid=tiktok_pns_web_runtime" &&
       b != "https://mon.tiktokv.com/monitor_web/settings/browser-settings?bid=tiktok_webapp&store=1" &&
-      open.call(this, a, b, c);
+        open.call(this, a, b, c);
   }
   let fet = fetch;
   fetch = (a, b) => {
