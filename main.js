@@ -15,14 +15,14 @@ Node.prototype.addEventListener = function (a, b, c) {
     case "copy":
     case "cut":
     case "dblclick":
-    case "drag":
-    case "dragend":
-    case "dragenter":
-    case "dragexit":
-    case "dragleave":
-    case "dragover":
+    // case "drag":
+    // case "dragend":
+    // case "dragenter":
+    // case "dragexit":
+    // case "dragleave":
+    // case "dragover":
+    // case "dragstart":
     case "drop":
-    case "dragstart":
     case "error":
     case "gotpointercapture":
     case "lostpointercapture":
@@ -107,12 +107,6 @@ HTMLElement.prototype.setAttribute = function (a, b) {
       Element.prototype.setAttribute.call(this, a, b);
   }
 }
-
-{
-  let o = Object.freeze(0);
-  let createElement = document.createElement.bind(document);
-  document.createElement = a => a != "meta" ? createElement(a) : o; 
-}
 HTMLHeadElement.prototype.appendChild = a => {
   if (typeof a != "number") {
     let src = a.src;
@@ -122,7 +116,6 @@ HTMLHeadElement.prototype.appendChild = a => {
     document.head.insertBefore(a, null);
   }
 }
-
 {
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
@@ -140,4 +133,7 @@ HTMLHeadElement.prototype.appendChild = a => {
     return url && url.slice(32, 38) != "report" &&
       fet(a, b);
   }
+  let o = Object.freeze(0);
+  let createElement = document.createElement.bind(document);
+  document.createElement = a => a != "meta" ? createElement(a) : o;
 }
