@@ -60,63 +60,74 @@ Node.prototype.removeEventListener = function (a, b, c) {
       removeEventListener.call(this, a, b, c);
   }
 }
-HTMLElement.prototype.setAttribute = function (a, b) {
-  switch (a) {
-    case "alt":
-    case "aria-atomic":
-    case "aria-autocomplete":
-    case "aria-controls":
-    case "aria-expanded":
-    case "aria-describedby":
-    case "aria-disabled":
-    case "aria-haspopup":
-    case "aria-label":
-    case "aria-labelledby":
-    case "aria-live":
-    case "aria-modal":
-    case "aria-pressed":
-    case "aria-relevant":
-    case "aria-selected":
-    case "aria-valuenow":
-    case "aria-valuetext":
-    case "color":
-    case "content":
-    case "decoding":
-    // case "data-webpack":
-    case "fetchpriority":
-    case "hrefLang":
-    case "letter-spacing":
-    case "loading":
-    case "role":
-    case "shape":
-    case "tabindex":
-    case "title":
-      break;
-    case "class":
-      this.className = b;
-      break;
-    case "id":
-    case "height":
-    case "href":
-    case "srcSet":
-    case "target":
-    case "width":
-      this[a] = b;
-      break;
-    default:
-      Element.prototype.setAttribute.call(this, a, b);
-  }
-}
-HTMLHeadElement.prototype.appendChild = a => {
-  if (typeof a != "number") {
-    let src = a.src;
-    src &&
-    src[111] != "z" && // src.slice(110, 114) != "/zti" &&
-    src[119] != "z" && // src.slice(118, 122) != "/zti" &&
-    document.head.insertBefore(a, null);
-  }
-}
 {
+  let link;
+  HTMLElement.prototype.setAttribute = function (a, b) {
+    switch (a) {
+      case "alt":
+      case "aria-atomic":
+      case "aria-autocomplete":
+      case "aria-controls":
+      case "aria-expanded":
+      case "aria-describedby":
+      case "aria-disabled":
+      case "aria-haspopup":
+      case "aria-label":
+      case "aria-labelledby":
+      case "aria-live":
+      case "aria-modal":
+      case "aria-pressed":
+      case "aria-relevant":
+      case "aria-selected":
+      case "aria-valuenow":
+      case "aria-valuetext":
+      case "color":
+      case "content":
+      case "decoding":
+      // case "data-webpack":
+      case "fetchpriority":
+      case "hrefLang":
+      case "letter-spacing":
+      case "loading":
+      case "role":
+      case "shape":
+      case "tabindex":
+      case "title":
+        break;
+      case "class":
+        this.className = b;
+        break;
+      case "id":
+      case "height":
+      case "srcSet":
+      case "target":
+      case "width":
+        this[a] = b;
+        break;
+      case "rel":
+        link = this;
+        b  == "stylesheet" && (this.rel = "stylesheet");
+        break;
+      case "href":
+        this.tagName != "LINK" || link.rel == "stylesheet" && (this.href = b);
+        break;
+      default:
+        Element.prototype.setAttribute.call(this, a, b);
+    }
+  }
+  HTMLHeadElement.prototype.appendChild = a => {
+    if (typeof a != "number" && a != link) {
+      let src = a.src;
+      src &&
+      src[111] != "z" && // src.slice(110, 114) != "/zti" &&
+      src[119] != "z" && // src.slice(118, 122) != "/zti" &&
+      document.head.insertBefore(a, null);
+    }
+  }
+  let o = Object.freeze(0);
+  let createElement = document.createElement.bind(document);
+  document.createElement = a => a != "meta" ? createElement(a) : o;
+  
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
     return b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
@@ -133,7 +144,4 @@ HTMLHeadElement.prototype.appendChild = a => {
     return url && url.slice(32, 38) != "report" &&
       fet(a, b);
   }
-  let o = Object.freeze(0);
-  let createElement = document.createElement.bind(document);
-  document.createElement = a => a != "meta" ? createElement(a) : o;
 }
