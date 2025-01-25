@@ -26,6 +26,7 @@ Node.prototype.addEventListener = function (a, b, c) {
     case "error":
     case "gotpointercapture":
     case "lostpointercapture":
+    case "lowdecode":
     case "mozfullscreenchange":
     case "paste":
     case "selectionchange":
@@ -49,6 +50,7 @@ Node.prototype.removeEventListener = function (a, b, c) {
     case "MSPointerMove":
     case "contextmenu":
     case "error":
+    case "touchmove":
     case "mozfullscreenchange":
     case "visibilitychange":
     case "volumechange":
@@ -61,7 +63,12 @@ Node.prototype.removeEventListener = function (a, b, c) {
   }
 }
 {
-  let link;
+  let dummyElement = Object.freeze(0);
+  let blockElement;
+  let createElement = document.createElement.bind(document);
+  
+  document.createElement = a => a != "meta" ? createElement(a) : dummyElement;
+
   HTMLElement.prototype.setAttribute = function (a, b) {
     switch (a) {
       case "alt":
@@ -105,18 +112,19 @@ Node.prototype.removeEventListener = function (a, b, c) {
         this[a] = b;
         break;
       case "rel":
-        link = this;
+        blockElement = this;
         b  == "stylesheet" && (this.rel = "stylesheet");
         break;
       case "href":
-        this.tagName != "LINK" || link.rel == "stylesheet" && (this.href = b);
+        this.tagName != "LINK" || blockElement.rel == "stylesheet" && (this.href = b);
         break;
       default:
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
+  
   HTMLHeadElement.prototype.appendChild = a => {
-    if (typeof a != "number" && a != link) {
+    if (typeof a != "number" && a != blockElement) {
       let src = a.src;
       src &&
       src[111] != "z" && // src.slice(110, 114) != "/zti" &&
@@ -124,10 +132,7 @@ Node.prototype.removeEventListener = function (a, b, c) {
       document.head.insertBefore(a, null);
     }
   }
-  let o = Object.freeze(0);
-  let createElement = document.createElement.bind(document);
-  document.createElement = a => a != "meta" ? createElement(a) : o;
-  
+
   let open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (a, b, c) {
     return b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
