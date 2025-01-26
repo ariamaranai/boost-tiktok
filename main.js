@@ -1,9 +1,6 @@
 Object.seal = a => a;
 MediaSource.isTypeSupported = () => 1;
-
-navigator.sendBeacon =
-XMLHttpRequest.prototype.addEventListener =
-XMLHttpRequest.prototype.removeEventListener = () => 0;
+navigator.sendBeacon = () => 0;
 
 Node.prototype.addEventListener = function (a, b, c) {
   switch (a) {
@@ -133,8 +130,11 @@ Node.prototype.removeEventListener = function (a, b, c) {
     }
   }
 
-  let open = XMLHttpRequest.prototype.open;
-  XMLHttpRequest.prototype.open = function (a, b, c) {
+  let xhr = XMLHttpRequest.prototype;
+  xhr.addEventListener =
+  xhr.removeEventListener = () => 0;
+  let open = xhr.open;
+  xhr.open = function (a, b, c) {
     return b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
       b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tt_pc_banner_ads" &&
       b != "https://im-api-sg.tiktok.com/v2/message/get_by_user_init" &&
@@ -143,6 +143,11 @@ Node.prototype.removeEventListener = function (a, b, c) {
       b != "https://mon.tiktokv.com/monitor_web/settings/browser-settings?bid=tiktok_webapp&store=1" &&
         open.call(this, a, b, c);
   }
+  let send = xhr.send;
+  xhr.send = function (a) {
+    this.readyState && send.call(this, a)
+  }
+
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
