@@ -1,3 +1,4 @@
+
 Object.seal = a => a;
 MediaSource.isTypeSupported = () => 1;
 navigator.sendBeacon = () => 0;
@@ -63,7 +64,7 @@ Node.prototype.removeEventListener = function (a, b, c) {
   let dummyElement = Object.freeze(0);
   let blockElement;
   let createElement = document.createElement.bind(document);
-  
+
   document.createElement = a => a != "meta" ? createElement(a) : dummyElement;
 
   HTMLElement.prototype.setAttribute = function (a, b) {
@@ -135,13 +136,13 @@ Node.prototype.removeEventListener = function (a, b, c) {
   xhr.removeEventListener = () => 0;
   let open = xhr.open;
   xhr.open = function (a, b, c) {
-    return b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
-      b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tt_pc_banner_ads" &&
-      b != "https://im-api-sg.tiktok.com/v2/message/get_by_user_init" &&
-      b.slice(32, 38) != "report" &&
-      b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?bid=tiktok_pns_web_runtime" &&
-      b != "https://mon.tiktokv.com/monitor_web/settings/browser-settings?bid=tiktok_webapp&store=1" &&
-        open.call(this, a, b, c);
+    b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
+    b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tt_pc_banner_ads" &&
+    b != "https://im-api-sg.tiktok.com/v2/message/get_by_user_init" &&
+    b.slice(32, 38) != "report" &&
+    b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?bid=tiktok_pns_web_runtime" &&
+    b != "https://mon.tiktokv.com/monitor_web/settings/browser-settings?bid=tiktok_webapp&store=1" &&
+      open.call(this, a, b, c);
   }
   let send = xhr.send;
   xhr.send = function (a) {
