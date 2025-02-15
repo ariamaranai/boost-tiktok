@@ -1,6 +1,6 @@
-
 Object.seal = a => a;
 MediaSource.isTypeSupported = () => 1;
+
 {
   let p = Node.prototype;
   let dummyElement = Object.freeze(0);
@@ -151,6 +151,6 @@ MediaSource.isTypeSupported = () => 1;
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
-    return url.slice(32, 38) != "report" && fet(a, b);
+    return url && url.slice(32, 38) != "report" && fet(a, b);
   }
 }
