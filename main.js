@@ -1,6 +1,5 @@
 Object.seal = a => a;
 MediaSource.isTypeSupported = () => 1;
-
 {
   let p = Node.prototype;
   let dummyElement = Object.freeze(0);
@@ -147,7 +146,6 @@ MediaSource.isTypeSupported = () => 1;
   p.send = function (a) {
     this.readyState && send.call(this, a)
   }
-
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
