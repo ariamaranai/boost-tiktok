@@ -1,18 +1,16 @@
-Object.seal = a => a;
 MediaSource.isTypeSupported = () => 1;
 {
   let p = Node.prototype;
-  let dummyElement = Object.freeze(0);
+  let o = Object;
   let blockElement;
-  let createElement = document.createElement.bind(document);
 
+  o.seal = a => a;
   p.addEventListener = function (a, b, c) {
     switch (a) {
       case "MSFullscreenChange":
       case "MSPointerDown":
       case "MSPointerMove":
       case "auxclick":
-      case "contextmenu":
       case "copy":
       case "cut":
       case "dblclick":
@@ -24,7 +22,6 @@ MediaSource.isTypeSupported = () => 1;
       // case "dragover":
       // case "dragstart":
       case "drop":
-      case "error":
       case "gotpointercapture":
       case "lostpointercapture":
       case "lowdecode":
@@ -65,35 +62,14 @@ MediaSource.isTypeSupported = () => 1;
   }
   HTMLElement.prototype.setAttribute = function (a, b) {
     switch (a) {
-      case "alt":
-      case "aria-atomic":
-      case "aria-autocomplete":
-      case "aria-controls":
-      case "aria-expanded":
-      case "aria-describedby":
-      case "aria-disabled":
-      case "aria-haspopup":
-      case "aria-label":
-      case "aria-labelledby":
-      case "aria-live":
       case "aria-modal":
-      case "aria-pressed":
-      case "aria-relevant":
-      case "aria-selected":
       case "aria-valuenow":
       case "aria-valuetext":
-      case "color":
       case "content":
-      case "decoding":
       // case "data-webpack":
-      case "fetchpriority":
       case "hrefLang":
       case "letter-spacing":
-      case "loading":
-      case "role":
       case "shape":
-      case "tabindex":
-      case "title":
         break;
       case "class":
         this.className = b;
@@ -116,6 +92,93 @@ MediaSource.isTypeSupported = () => 1;
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
+  let hasOwnProperty = (p = o.prototype).hasOwnProperty;
+  p.hasOwnProperty = function (a) {
+    switch (a) {
+      case "abTestVersion":
+      case "alt":
+      case "altKey":
+      case "aria-activedescendant":
+      case "aria-atomic":
+      case "aria-autocomplete":
+      case "aria-controls":
+      case "aria-describedby":
+      case "aria-disabled":
+      case "aria-expanded":
+      case "aria-haspopup":
+      case "aria-hidden":
+      case "aria-label":
+      case "aria-labelledby":
+      case "aria-live":
+      case "aria-modal":
+      case "aria-multiline":
+      case "aria-pressed":
+      case "aria-relevant":
+      case "aria-selected":
+      case "ariaExpanded":
+      case "ariaLabel":
+      case "aria-Labelledby":
+      case "borderRadius":
+      case "color":
+      case "ctrlKey":
+      case "decoding":
+      case "dir":
+      case "disableAutoLang":
+      case "disableDownload":
+      // case "draggingPercentCb":
+      // case "draggingStateCb":
+      case "ellipsis":
+      case "ellipsisLine":
+      case "ellipsisNarrow":
+      case "ellipsisOnNarrow":
+      case "fetchPriority":
+      case "hrefLang":
+      case "isAds":
+      case "isAndroid":
+      case "isBot":
+      case "isIOS":
+      case "isMobile":
+      case "isMobileUiOptimize":
+      case "isSearchEngineBot":
+      case "loading":
+      case "logger":
+      case "meta":
+      case "metaKey":
+      case "onContextMenu":
+      case "onCopy":
+      case "onCut":
+      case "onDragEnter":
+      case "onError":
+      case "onTouchStart":
+      case "report":
+      case "shouldReport":
+      case "role":
+      case "selectedTranslationLanguage":
+      case "shape":
+      case "shareUrl":
+      case "shiftKey":
+      case "tabIndex":
+      case "tabKey":
+      case "textDecoration":
+      // case "teaReport":
+      case "title":
+      case "translationDisableLanguages":
+      case "transparent":
+      case "userAgent":
+      case "xmlns":
+        return 0;
+      case "Webapp":
+      case "constructor":
+      case "ja-JP":
+      case "keySeparator":
+      case "supportAVIF":
+      case "supportWebP":
+        return 1;
+      default:
+        //typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
+        return hasOwnProperty.call(this, a);
+    }
+  }
   HTMLHeadElement.prototype.appendChild = a => {
     if (typeof a != "number" && a != blockElement) {
       let src = a.src;
@@ -125,9 +188,6 @@ MediaSource.isTypeSupported = () => 1;
       document.head.insertBefore(a, null);
     }
   }
-
-  document.createElement = a => a != "meta" ? createElement(a) : dummyElement;
-
   navigator.sendBeacon =
   (p = XMLHttpRequest.prototype).addEventListener =
   p.removeEventListener = () => 0;
