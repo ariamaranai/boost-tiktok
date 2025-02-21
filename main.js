@@ -118,7 +118,10 @@ MediaSource.isTypeSupported = () => 1;
       case "aria-selected":
       case "ariaExpanded":
       case "ariaLabel":
-      case "aria-Labelledby":
+      case "ariaLabelledby":
+      case "background":
+      case "backgroundColor":
+      case "backgroundImage":
       case "borderRadius":
       case "color":
       case "ctrlKey":
@@ -146,16 +149,20 @@ MediaSource.isTypeSupported = () => 1;
       case "logger":
       case "meta":
       case "metaKey":
+      case "muted":
+      case "needAnimation":
       case "onContextMenu":
       case "onCopy":
       case "onCut":
       case "onDragEnter":
       case "onError":
       case "onTouchStart":
+      case "onVideoError":
       case "report":
       case "shouldReport":
       case "role":
       case "selectedTranslationLanguage":
+      case "setPlaceholderComplete":
       case "shape":
       case "shareUrl":
       case "shiftKey":
@@ -163,6 +170,8 @@ MediaSource.isTypeSupported = () => 1;
       case "tabKey":
       case "textDecoration":
       // case "teaReport":
+      case "tiltX":
+      case "tiltY":
       case "title":
       case "translationDisableLanguages":
       case "transparent":
@@ -177,7 +186,6 @@ MediaSource.isTypeSupported = () => 1;
       case "supportWebP":
         return 1;
       default:
-
         typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
         return hasOwnProperty.call(this, a);
     }
