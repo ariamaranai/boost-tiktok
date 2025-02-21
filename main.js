@@ -14,13 +14,13 @@ MediaSource.isTypeSupported = () => 1;
       case "copy":
       case "cut":
       case "dblclick":
-      // case "drag":
-      // case "dragend":
-      // case "dragenter":
-      // case "dragexit":
-      // case "dragleave":
-      // case "dragover":
-      // case "dragstart":
+      case "drag":
+      case "dragend":
+      case "dragenter":
+      case "dragexit":
+      case "dragleave":
+      case "dragover":
+      case "dragstart":
       case "drop":
       case "gotpointercapture":
       case "lostpointercapture":
@@ -92,6 +92,7 @@ MediaSource.isTypeSupported = () => 1;
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
+  var kkk = {};
   let hasOwnProperty = (p = o.prototype).hasOwnProperty;
   p.hasOwnProperty = function (a) {
     switch (a) {
@@ -125,6 +126,7 @@ MediaSource.isTypeSupported = () => 1;
       case "dir":
       case "disableAutoLang":
       case "disableDownload":
+      case "disabled":
       // case "draggingPercentCb":
       // case "draggingStateCb":
       case "ellipsis":
@@ -175,7 +177,8 @@ MediaSource.isTypeSupported = () => 1;
       case "supportWebP":
         return 1;
       default:
-        //typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
+
+        typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
         return hasOwnProperty.call(this, a);
     }
   }
