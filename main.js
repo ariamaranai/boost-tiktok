@@ -186,7 +186,7 @@ MediaSource.isTypeSupported = () => 1;
       case "supportWebP":
         return 1;
       default:
-        typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
+        // typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
         return hasOwnProperty.call(this, a);
     }
   }
