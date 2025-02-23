@@ -92,7 +92,7 @@ MediaSource.isTypeSupported = () => 1;
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
-  var kkk = {};
+  // var kkk = {};
   let hasOwnProperty = (p = o.prototype).hasOwnProperty;
   p.hasOwnProperty = function (a) {
     switch (a) {
@@ -113,12 +113,13 @@ MediaSource.isTypeSupported = () => 1;
       case "aria-live":
       case "aria-modal":
       case "aria-multiline":
+      case "aria-owns":
       case "aria-pressed":
       case "aria-relevant":
       case "aria-selected":
       case "ariaExpanded":
       case "ariaLabel":
-      case "ariaLabelledby":
+      case "ariaLabelledBy":
       case "background":
       case "backgroundColor":
       case "backgroundImage":
@@ -145,6 +146,8 @@ MediaSource.isTypeSupported = () => 1;
       case "isMobile":
       case "isMobileUiOptimize":
       case "isSearchEngineBot":
+      case "label":
+      case "labelType":
       case "loading":
       case "logger":
       case "meta":
@@ -173,6 +176,7 @@ MediaSource.isTypeSupported = () => 1;
       case "tiltX":
       case "tiltY":
       case "title":
+      case "twist":
       case "translationDisableLanguages":
       case "transparent":
       case "userAgent":
