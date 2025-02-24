@@ -93,8 +93,7 @@ MediaSource.isTypeSupported = () => 1;
     }
   }
   // var kkk = {};
-  let hasOwnProperty = (p = o.prototype).hasOwnProperty;
-  p.hasOwnProperty = function (a) {
+  o.prototype.hasOwnProperty = function (a) {
     switch (a) {
       case "abTestVersion":
       case "alt":
@@ -120,6 +119,8 @@ MediaSource.isTypeSupported = () => 1;
       case "ariaExpanded":
       case "ariaLabel":
       case "ariaLabelledBy":
+      case "autoComplete":
+      case "autoFocus":
       case "background":
       case "backgroundColor":
       case "backgroundImage":
@@ -138,6 +139,7 @@ MediaSource.isTypeSupported = () => 1;
       case "ellipsisNarrow":
       case "ellipsisOnNarrow":
       case "fetchPriority":
+      // case "handleDownload":
       case "hrefLang":
       case "isAds":
       case "isAndroid":
@@ -148,10 +150,14 @@ MediaSource.isTypeSupported = () => 1;
       case "isSearchEngineBot":
       case "label":
       case "labelType":
+      case "letterSpacing":
       case "loading":
       case "logger":
+      // case "maskCloseable":
       case "meta":
       case "metaKey":
+      case "mobileGuessSearchList":
+      case "mobileSugList":
       case "muted":
       case "needAnimation":
       case "onContextMenu":
@@ -159,9 +165,13 @@ MediaSource.isTypeSupported = () => 1;
       case "onCut":
       case "onDragEnter":
       case "onError":
+      case "onPlatformChange":
       case "onTouchStart":
       case "onVideoError":
+      case "onerror":
       case "report":
+      case "scrollWidth":
+      case "scrollbar":
       case "shouldReport":
       case "role":
       case "selectedTranslationLanguage":
@@ -176,6 +186,11 @@ MediaSource.isTypeSupported = () => 1;
       case "tiltX":
       case "tiltY":
       case "title":
+      case "toastDuration":
+      case "toastNotShown":
+      case "toastOptions":
+      case "toastTheme":
+      case "toasterTheme":
       case "twist":
       case "translationDisableLanguages":
       case "transparent":
@@ -191,7 +206,7 @@ MediaSource.isTypeSupported = () => 1;
         return 1;
       default:
         // typeof a == "string" && a.length > 2 && (kkk[a] ? ++kkk[a] : kkk[a] = 1);
-        return hasOwnProperty.call(this, a);
+        return o.hasOwn(this, a);
     }
   }
   HTMLHeadElement.prototype.appendChild = a => {
