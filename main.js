@@ -12,6 +12,7 @@ MediaSource.isTypeSupported = () => 1;
       case "MSPointerMove":
       case "auxclick":
       case "copy":
+      case "contextmenu":
       case "cut":
       case "dblclick":
       case "drag":
@@ -125,8 +126,12 @@ MediaSource.isTypeSupported = () => 1;
       case "backgroundColor":
       case "backgroundImage":
       case "borderRadius":
+      case "btnShow":
+      case "downloadLink":
+      case "downloadSetting":
       case "color":
       case "ctrlKey":
+      case "data-e2e":
       case "decoding":
       case "dir":
       case "disableAutoLang":
