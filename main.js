@@ -117,6 +117,8 @@ MediaSource.isTypeSupported = () => 1;
       case "aria-pressed":
       case "aria-relevant":
       case "aria-selected":
+      case "aria-valuenow":
+      case "aria-valuetext":
       case "ariaExpanded":
       case "ariaLabel":
       case "ariaLabelledBy":
@@ -126,6 +128,7 @@ MediaSource.isTypeSupported = () => 1;
       case "backgroundColor":
       case "backgroundImage":
       case "borderRadius":
+      case "botType":
       case "btnShow":
       case "downloadLink":
       case "downloadSetting":
@@ -145,7 +148,9 @@ MediaSource.isTypeSupported = () => 1;
       case "ellipsisOnNarrow":
       case "fetchPriority":
       // case "handleDownload":
+      // case "hoverTeaReportParams":
       case "hrefLang":
+      case "isAd":
       case "isAds":
       case "isAndroid":
       case "isBot":
