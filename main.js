@@ -10,6 +10,9 @@ MediaSource.isTypeSupported = () => 1;
       case "MSFullscreenChange":
       case "MSPointerDown":
       case "MSPointerMove":
+      case "animationend":
+      case "animationiteration":
+      case "animationstart":
       case "auxclick":
       case "copy":
       case "contextmenu":
@@ -23,9 +26,14 @@ MediaSource.isTypeSupported = () => 1;
       case "dragover":
       case "dragstart":
       case "drop":
+      case "error":
       case "gotpointercapture":
       case "lostpointercapture":
       case "lowdecode":
+      case "mouseenter":
+      case "mouseleave":
+      case "mouseout":
+      case "mouseover":
       case "mozfullscreenchange":
       case "paste":
       case "selectionchange":
@@ -87,13 +95,12 @@ MediaSource.isTypeSupported = () => 1;
         b  == "stylesheet" && (this.rel = "stylesheet");
         break;
       case "href":
-        this.tagName != "LINK" || blockElement.rel == "stylesheet" && (this.href = b);
+        this.tagName != "LINK" || blockElement?.rel == "stylesheet" && (this.href = b);
         break;
       default:
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
-  // var kkk = {};
   o.prototype.hasOwnProperty = function (a) {
     switch (a) {
       case "abTestVersion":
@@ -161,6 +168,7 @@ MediaSource.isTypeSupported = () => 1;
       case "label":
       case "labelType":
       case "letterSpacing":
+      case "lineClamp":
       case "loading":
       case "logger":
       // case "maskCloseable":
@@ -180,9 +188,11 @@ MediaSource.isTypeSupported = () => 1;
       case "onVideoError":
       case "onerror":
       case "report":
+      case "reportParams":
       case "scrollWidth":
       case "scrollbar":
       case "shouldReport":
+      // case "rel":
       case "role":
       case "selectedTranslationLanguage":
       case "setPlaceholderComplete":
@@ -193,6 +203,7 @@ MediaSource.isTypeSupported = () => 1;
       case "tabKey":
       case "textDecoration":
       // case "teaReport":
+      // case "theme":
       case "tiltX":
       case "tiltY":
       case "title":
