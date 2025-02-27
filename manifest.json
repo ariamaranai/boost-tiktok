@@ -7,7 +7,6 @@
     "128": "128.png"
   },
   "content_scripts": [{
-    "css": ["main.css"],
     "js": ["main.js"],
     "matches": ["https://www.tiktok.com/*"],
     "world": "MAIN",
