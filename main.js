@@ -45,7 +45,7 @@ MediaSource.isTypeSupported = () => 1;
       case "webkitbeginfullscreen":
       case "webkitendfullscreen":
       case "webkitfullscreenchange":
-        break;
+        return 0;
       default:
         addEventListener.call(this, a, b, c);
     }
@@ -64,7 +64,7 @@ MediaSource.isTypeSupported = () => 1;
       case "webkitbeginfullscreen":
       case "webkitendfullscreen":
       case "webkitfullscreenchange":
-        break;
+        return 0;
       default:
         removeEventListener.call(this, a, b, c);
     }
@@ -79,24 +79,24 @@ MediaSource.isTypeSupported = () => 1;
       case "hrefLang":
       case "letter-spacing":
       case "shape":
-        break;
+        return 0;
       case "class":
         this.className = b;
-        break;
+        return 0;
       case "id":
       case "height":
       case "srcSet":
       case "target":
       case "width":
         this[a] = b;
-        break;
+        return 0;
       case "rel":
         blockElement = this;
         b  == "stylesheet" && (this.rel = "stylesheet");
-        break;
+        return 0;
       case "href":
         this.tagName != "LINK" || blockElement?.rel == "stylesheet" && (this.href = b);
-        break;
+        return 0;
       default:
         Element.prototype.setAttribute.call(this, a, b);
     }
@@ -165,11 +165,11 @@ MediaSource.isTypeSupported = () => 1;
       case "isMobile":
       case "isMobileUiOptimize":
       case "isSearchEngineBot":
-      case "label":
-      case "labelType":
+      // case "label":
+      // case "labelType":
       case "letterSpacing":
       case "lineClamp":
-      case "loading":
+      // case "loading":
       case "logger":
       // case "maskCloseable":
       case "meta":
@@ -260,6 +260,23 @@ MediaSource.isTypeSupported = () => 1;
   let fet = fetch;
   fetch = (a, b) => {
     let url = a.url;
-    return url && url.slice(32, 38) != "report" && fet(a, b);
+    if (url) {
+      let str = url.slice(32, 38);
+      switch (str) {
+        case "/notic":
+        case "collec":
+        // case "detail":
+        case "e/mult":
+        case "ed/ite":
+        case "follow":
+        case "h/sugg":
+        case "report":
+        case "siness":
+        case "st/fee":
+          return 0;
+        default:
+          return fet(a, b);
+      }
+    }
   }
 }
