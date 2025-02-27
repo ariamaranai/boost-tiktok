@@ -90,8 +90,7 @@ MediaSource.isTypeSupported = () => 1;
         return this[a] = b;
       case "rel":
         blockElement = this;
-        b  == "stylesheet" && (this.rel = "stylesheet");
-        return 0;
+        return b  == "stylesheet" && (this.rel = "stylesheet");
       case "href":
         return this.tagName != "LINK" || blockElement?.rel == "stylesheet" && (this.href = b);
       default:
