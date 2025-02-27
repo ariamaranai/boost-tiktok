@@ -81,22 +81,19 @@ MediaSource.isTypeSupported = () => 1;
       case "shape":
         return 0;
       case "class":
-        this.className = b;
-        return 0;
+        return this.className = b;
       case "id":
       case "height":
       case "srcSet":
       case "target":
       case "width":
-        this[a] = b;
-        return 0;
+        return this[a] = b;
       case "rel":
         blockElement = this;
         b  == "stylesheet" && (this.rel = "stylesheet");
         return 0;
       case "href":
-        this.tagName != "LINK" || blockElement?.rel == "stylesheet" && (this.href = b);
-        return 0;
+        return this.tagName != "LINK" || blockElement?.rel == "stylesheet" && (this.href = b);
       default:
         Element.prototype.setAttribute.call(this, a, b);
     }
