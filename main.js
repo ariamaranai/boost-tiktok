@@ -97,6 +97,7 @@ MediaSource.isTypeSupported = () => 1;
         Element.prototype.setAttribute.call(this, a, b);
     }
   }
+  // var kkk = {};
   o.prototype.hasOwnProperty = function (a) {
     switch (a) {
       case "abTestVersion":
@@ -180,6 +181,10 @@ MediaSource.isTypeSupported = () => 1;
       case "onDragEnter":
       case "onError":
       case "onPlatformChange":
+      case "onTab":
+      case "onTabChange":
+      case "onTabClick":
+      case "onTabListKeyDown":
       case "onTouchStart":
       case "onVideoError":
       case "onerror":
@@ -187,6 +192,7 @@ MediaSource.isTypeSupported = () => 1;
       case "reportParams":
       case "scrollWidth":
       case "scrollbar":
+      case "seo_vidab": //
       case "shouldReport":
       // case "rel":
       case "role":
@@ -195,6 +201,10 @@ MediaSource.isTypeSupported = () => 1;
       case "shape":
       case "shareUrl":
       case "shiftKey":
+      case "showCaption":
+      case "showLogo":
+      case "showRelated":
+      // case "sideCar":
       case "tabIndex":
       case "tabKey":
       case "textDecoration":
