@@ -158,6 +158,8 @@ MediaSource.isTypeSupported = () => 1;
       case "isAds":
       case "isAndroid":
       case "isBot":
+      case "isGuestMode":
+      case "isGuestModeUI":
       case "isIOS":
       case "isMobile":
       case "isMobileUiOptimize":
@@ -195,6 +197,7 @@ MediaSource.isTypeSupported = () => 1;
       case "seo_vidab": //
       case "shouldReport":
       // case "rel":
+      case "redirectToHomePage":
       case "role":
       case "selectedTranslationLanguage":
       case "setPlaceholderComplete":
