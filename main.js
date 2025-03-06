@@ -26,6 +26,7 @@ MediaSource.isTypeSupported = () => 1;
       case "dragover":
       case "dragstart":
       case "drop":
+      case "encrypted":
       case "error":
       case "gotpointercapture":
       case "lostpointercapture":
@@ -42,31 +43,13 @@ MediaSource.isTypeSupported = () => 1;
       case "touchmove":
       case "touchstart":
       case "visibilitychange":
-      case "webkitbeginfullscreen":
-      case "webkitendfullscreen":
-      case "webkitfullscreenchange":
-        return 0;
-      default:
-        addEventListener.call(this, a, b, c);
-    }
-  }
-  p.removeEventListener = function (a, b, c) {
-    switch (a) {
-      case "MSFullscreenChange":
-      case "MSPointerDown":
-      case "MSPointerMove":
-      case "contextmenu":
-      case "error":
-      case "touchmove":
-      case "mozfullscreenchange":
-      case "visibilitychange":
       case "volumechange":
       case "webkitbeginfullscreen":
       case "webkitendfullscreen":
       case "webkitfullscreenchange":
         return 0;
       default:
-        removeEventListener.call(this, a, b, c);
+        addEventListener.call(this, a, b, c);
     }
   }
   HTMLElement.prototype.setAttribute = function (a, b) {
