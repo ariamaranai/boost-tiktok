@@ -1,18 +1,17 @@
 MediaSource.isTypeSupported = () => 1;
+
+HTMLHeadElement.prototype.appendChild = a => {
+  let src = a.src;
+  src &&
+  src[111] != "z" && // src.slice(110, 114) != "/zti" &&
+  src[119] != "z" && // src.slice(118, 122) != "/zti" &&
+  document.head.insertBefore(a, null);
+}
 {
-  HTMLHeadElement.prototype.appendChild = a => {
-    let src = a.src;
-    src &&
-    src[111] != "z" && // src.slice(110, 114) != "/zti" &&
-    src[119] != "z" && // src.slice(118, 122) != "/zti" &&
-    document.head.insertBefore(a, null);
-  }
-  
   let p = XMLHttpRequest.prototype;
   navigator.sendBeacon =
   p.addEventListener =
   p.removeEventListener = () => 0;
-
   let open = p.open;
   p.open = function (a, b, c) {
     b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
