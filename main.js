@@ -1,5 +1,4 @@
 MediaSource.isTypeSupported = () => 1;
-
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
   src &&
@@ -8,6 +7,7 @@ HTMLHeadElement.prototype.appendChild = a => {
   document.head.insertBefore(a, null);
 }
 {
+  Object.seal = a => a;
   let p = XMLHttpRequest.prototype;
   navigator.sendBeacon =
   p.addEventListener =
