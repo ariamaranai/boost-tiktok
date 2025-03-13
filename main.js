@@ -7,7 +7,197 @@ HTMLHeadElement.prototype.appendChild = a => {
   document.head.insertBefore(a, null);
 }
 {
+  Node.prototype.addEventListener = function (a, b, c) {
+    switch (a) {
+      case "MSFullscreenChange":
+      case "MSPointerDown":
+      case "MSPointerMove":
+      case "animationend":
+      case "animationiteration":
+      case "animationstart":
+      case "auxclick":
+      case "copy":
+      case "contextmenu":
+      case "cut":
+      case "dblclick":
+      // case "drag":
+      // case "dragend":
+      // case "dragenter":
+      // case "dragexit":
+      // case "dragleave":
+      // case "dragover":
+      // case "dragstart":
+      case "drop":
+      case "encrypted":
+      case "error":
+      case "gotpointercapture":
+      case "lostpointercapture":
+      case "lowdecode":
+      case "mouseenter":
+      case "mouseleave":
+      case "mouseout":
+      case "mouseover":
+      case "mozfullscreenchange":
+      case "paste":
+      case "selectionchange":
+      case "touchcancel":
+      case "touchend":
+      case "touchmove":
+      case "touchstart":
+      case "visibilitychange":
+      case "volumechange":
+      case "webkitbeginfullscreen":
+      case "webkitendfullscreen":
+      case "webkitfullscreenchange":
+        return 0;
+      default:
+        addEventListener.call(this, a, b, c);
+    }
+  }
   Object.seal = a => a;
+  // var kkk = {};
+  Object.prototype.hasOwnProperty.call = (a, b) => {
+    switch (b) {
+      case "abTestVersion":
+      case "alt":
+      case "altKey":
+      case "aria-activedescendant":
+      case "aria-atomic":
+      case "aria-autocomplete":
+      case "aria-controls":
+      case "aria-describedby":
+      case "aria-disabled":
+      case "aria-expanded":
+      case "aria-haspopup":
+      case "aria-hidden":
+      case "aria-label":
+      case "aria-labelledby":
+      case "aria-live":
+      case "aria-modal":
+      case "aria-multiline":
+      case "aria-owns":
+      case "aria-pressed":
+      case "aria-relevant":
+      case "aria-selected":
+      case "aria-valuenow":
+      case "aria-valuetext":
+      case "ariaExpanded":
+      case "ariaLabel":
+      case "ariaLabelledBy":
+      case "autoComplete":
+      case "autoFocus":
+      case "background":
+      case "backgroundColor":
+      case "backgroundImage":
+      case "borderRadius":
+      case "botType":
+      case "btnShow":
+      case "downloadLink":
+      case "downloadSetting":
+      case "color":
+      case "ctrlKey":
+      case "data-e2e":
+      case "data-testid":
+      case "decoding":
+      case "dir":
+      case "disableAutoLang":
+      case "disableDownload":
+      case "disabled":
+      // case "draggingPercentCb":
+      // case "draggingStateCb":
+      case "ellipsis":
+      case "ellipsisLine":
+      case "ellipsisNarrow":
+      case "ellipsisOnNarrow":
+      case "fetchPriority":
+      // case "handleDownload":
+      // case "hoverTeaReportParams":
+      case "hrefLang":
+      case "isAd":
+      case "isAds":
+      case "isAndroid":
+      case "isBot":
+      // case "isGuestMode": // 無効にするとバグる
+      // case "isGuestModeUI":
+      case "isIOS":
+      case "isMobile":
+      case "isMobileUiOptimize":
+      case "isSearchEngineBot":
+      // case "label":
+      // case "labelType":
+      case "letterSpacing":
+      case "lineClamp":
+      case "loading":
+      case "logger":
+      // case "maskCloseable":
+      case "meta":
+      case "metaKey":
+      case "mobileGuessSearchList":
+      case "mobileSugList":
+      case "muted":
+      case "needAnimation":
+      case "onContextMenu":
+      case "onCopy":
+      case "onCut":
+      case "onDragEnter":
+      case "onError":
+      case "onPlatformChange":
+      case "onTab":
+      case "onTabChange":
+      case "onTabClick":
+      case "onTabListKeyDown":
+      case "onTouchStart":
+      case "onVideoError":
+      case "onerror":
+      case "report":
+      case "reportParams":
+      case "scrollWidth":
+      case "scrollbar":
+      case "seo_vidab":
+      case "shouldReport":
+      // case "rel":
+      // case "redirectToHomePage": // 無効にするとバグる
+      case "role":
+      case "selectedTranslationLanguage":
+      case "setPlaceholderComplete":
+      case "shape":
+      case "shareUrl":
+      case "shiftKey":
+      case "showCaption":
+      case "showLogo":
+      case "showRelated":
+      // case "sideCar":
+      case "tabIndex":
+      case "tabKey":
+      case "textDecoration":
+      // case "teaReport":
+      // case "theme":
+      case "tiltX":
+      case "tiltY":
+      case "title":
+      case "toastDuration":
+      case "toastNotShown":
+      case "toastOptions":
+      case "toastTheme":
+      case "toasterTheme":
+      case "twist":
+      case "translationDisableLanguages":
+      case "transparent":
+      case "userAgent":
+      case "xmlns":
+        return 0;
+      case "Webapp":
+      case "constructor":
+      case "ja-JP":
+      case "keySeparator":
+      case "supportAVIF":
+      case "supportWebP":
+        return 1;
+      default:
+        // typeof b == "string" && b.length > 2 && (kkk[b] ? ++kkk[b] : kkk[b] = 1);
+        return b in a;
+    }
+  }
   let p = XMLHttpRequest.prototype;
   navigator.sendBeacon =
   p.addEventListener =
