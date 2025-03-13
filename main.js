@@ -20,13 +20,13 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "contextmenu":
       case "cut":
       case "dblclick":
-      // case "drag":
-      // case "dragend":
-      // case "dragenter":
-      // case "dragexit":
-      // case "dragleave":
-      // case "dragover":
-      // case "dragstart":
+      case "drag":
+      case "dragend":
+      case "dragenter":
+      case "dragexit":
+      case "dragleave":
+      case "dragover":
+      case "dragstart":
       case "drop":
       case "encrypted":
       case "error":
@@ -117,8 +117,8 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "isAds":
       case "isAndroid":
       case "isBot":
-      // case "isGuestMode": // 無効にするとバグる
-      // case "isGuestModeUI":
+      // case "isGuestMode": // Bug
+      // case "isGuestModeUI": // Bug
       case "isIOS":
       case "isMobile":
       case "isMobileUiOptimize":
@@ -142,10 +142,10 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "onDragEnter":
       case "onError":
       case "onPlatformChange":
-      case "onTab":
-      case "onTabChange":
-      case "onTabClick":
-      case "onTabListKeyDown":
+      // case "onTab":
+      // case "onTabChange":
+      // case "onTabClick":
+      // case "onTabListKeyDown":
       case "onTouchStart":
       case "onVideoError":
       case "onerror":
@@ -156,7 +156,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "seo_vidab":
       case "shouldReport":
       // case "rel":
-      // case "redirectToHomePage": // 無効にするとバグる
+      // case "redirectToHomePage":
       case "role":
       case "selectedTranslationLanguage":
       case "setPlaceholderComplete":
@@ -168,7 +168,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "showRelated":
       // case "sideCar":
       case "tabIndex":
-      case "tabKey":
+      // case "tabKey":
       case "textDecoration":
       // case "teaReport":
       // case "theme":
