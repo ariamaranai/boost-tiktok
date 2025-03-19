@@ -92,9 +92,13 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "borderRadius":
       case "botType":
       case "btnShow":
+      case "dangerouslyExposeHtml":
+      case "dangerouslySetInnerHTML":
       case "downloadLink":
       case "downloadSetting":
       case "color":
+      case "content-type":
+      case "contentType":
       case "ctrlKey":
       case "data-e2e":
       case "data-testid":
@@ -105,6 +109,8 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "disabled":
       // case "draggingPercentCb":
       // case "draggingStateCb":
+      case "e2eData":
+      case "e2eTag":
       case "ellipsis":
       case "ellipsisLine":
       case "ellipsisNarrow":
@@ -163,6 +169,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "shape":
       case "shareUrl":
       case "shiftKey":
+      case "shouldAnimate":
       case "showCaption":
       case "showLogo":
       case "showRelated":
@@ -184,6 +191,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "translationDisableLanguages":
       case "transparent":
       case "userAgent":
+      case "volumeInfo":
       case "xmlns":
         return 0;
       case "Webapp":
