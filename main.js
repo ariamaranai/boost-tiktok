@@ -115,6 +115,7 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "ellipsisLine":
       case "ellipsisNarrow":
       case "ellipsisOnNarrow":
+      case "error":
       case "fetchPriority":
       // case "handleDownload":
       // case "hoverTeaReportParams":
@@ -131,6 +132,8 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "isSearchEngineBot":
       // case "label":
       // case "labelType":
+      case "lang":
+      case "language":
       case "letterSpacing":
       case "lineClamp":
       case "loading":
