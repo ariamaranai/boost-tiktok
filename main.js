@@ -102,7 +102,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "ctrlKey":
       case "data-e2e":
       case "data-testid":
-      case "decoding":
       case "dir":
       case "disableAutoLang":
       case "disableDownload":
