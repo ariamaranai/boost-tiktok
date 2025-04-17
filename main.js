@@ -7,53 +7,6 @@ HTMLHeadElement.prototype.appendChild = a => {
   document.head.insertBefore(a, null);
 }
 {
-  Node.prototype.addEventListener = function (a, b, c) {
-    switch (a) {
-      case "MSFullscreenChange":
-      case "MSPointerDown":
-      case "MSPointerMove":
-      case "animationend":
-      case "animationiteration":
-      case "animationstart":
-      case "auxclick":
-      case "copy":
-      case "contextmenu":
-      case "cut":
-      case "dblclick":
-      case "drag":
-      case "dragend":
-      case "dragenter":
-      case "dragexit":
-      case "dragleave":
-      case "dragover":
-      case "dragstart":
-      case "drop":
-      case "encrypted":
-      case "error":
-      case "gotpointercapture":
-      case "lostpointercapture":
-      case "lowdecode":
-      case "mouseenter":
-      case "mouseleave":
-      case "mouseout":
-      case "mouseover":
-      case "mozfullscreenchange":
-      case "paste":
-      case "selectionchange":
-      case "touchcancel":
-      case "touchend":
-      case "touchmove":
-      case "touchstart":
-      case "visibilitychange":
-      case "volumechange":
-      case "webkitbeginfullscreen":
-      case "webkitendfullscreen":
-      case "webkitfullscreenchange":
-        return 0;
-      default:
-        addEventListener.call(this, a, b, c);
-    }
-  }
   Object.seal = a => a;
   // var kkk = {};
   Object.prototype.hasOwnProperty.call = (a, b) => {
