@@ -1,4 +1,60 @@
 MediaSource.isTypeSupported = () => 1;
+
+{
+  let has = (a, b) => {
+    switch (b) {
+      case "aria-activedescendant":
+      case "aria-atomic":
+      case "aria-autocomplete":
+      case "aria-controls":
+      case "aria-describedby":
+      case "aria-disabled":
+      case "aria-expanded":
+      case "aria-haspopup":
+      case "aria-hidden":
+      case "aria-label":
+      case "aria-labelledby":
+      case "aria-live":
+      case "aria-modal":
+      case "aria-multiline":
+      case "aria-owns":
+      case "aria-pressed":
+      case "aria-relevant":
+      case "aria-selected":
+      case "aria-valuenow":
+      case "aria-valuetext":
+      case "ariaExpanded":
+      case "ariaLabel":
+      case "ariaLabelledBy":
+      case "background":
+      case "backgroundColor":
+      case "backgroundImage":
+      case "borderRadius":
+      case "data-e2e":
+      case "data-testid":
+      case "e2eTag":
+      case "ellipsis":
+      case "ellipsisLine":
+      case "ellipsisNarrow":
+      case "ellipsisOnNarrow":
+      case "shape":
+      case "tiltX":
+      case "tiltY":
+      case "transparent":
+      case "twist":
+        return 0;
+      default:
+        return b in a;
+    }
+  }
+  Object.prototype.hasOwnProperty = function (a) { return has(this, a) }
+  Object.prototype.hasOwnProperty.call = has;
+}
+
+/*
+IPがBotとして判定され検索が一切できなくなるため対応検討中
+おそらく本来不要なリクエストをいくつか送信しないといけない
+
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
   src &&
@@ -7,8 +63,8 @@ HTMLHeadElement.prototype.appendChild = a => {
   document.head.insertBefore(a, null);
 }
 {
-  Object.seal = a => a;
-  // var kkk = {};
+  // Object.seal = a => a;
+  // var z = {};
   Object.prototype.hasOwnProperty.call = (a, b) => {
     switch (b) {
       case "abTestVersion":
@@ -157,14 +213,13 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "supportWebP":
         return 1;
       default:
-        // typeof b == "string" && b.length > 2 && (kkk[b] ? ++kkk[b] : kkk[b] = 1);
+        // b.length > 2 && (z[b] ? ++z[b] : z[b] = 1);
         return b in a;
     }
   }
-  let p = XMLHttpRequest.prototype;
-  navigator.sendBeacon =
-  p.addEventListener =
-  p.removeEventListener = () => 0;
+  // let p = XMLHttpRequest.prototype;
+  // p.addEventListener =
+  // p.removeEventListener = () => 0;
   let open = p.open;
   p.open = function (a, b, c) {
     b != "https://mon.tiktokv.com/monitor_browser/collect/batch/?biz_id=tiktok_webapp" &&
@@ -201,4 +256,4 @@ HTMLHeadElement.prototype.appendChild = a => {
       }
     }
   }
-}
+}*/
