@@ -3,70 +3,6 @@ MediaSource.isTypeSupported = () => 1;
 {
   let has = (a, b) => {
     switch (b) {
-      case "aria-activedescendant":
-      case "aria-atomic":
-      case "aria-autocomplete":
-      case "aria-controls":
-      case "aria-describedby":
-      case "aria-disabled":
-      case "aria-expanded":
-      case "aria-haspopup":
-      case "aria-hidden":
-      case "aria-label":
-      case "aria-labelledby":
-      case "aria-live":
-      case "aria-modal":
-      case "aria-multiline":
-      case "aria-owns":
-      case "aria-pressed":
-      case "aria-relevant":
-      case "aria-selected":
-      case "aria-valuenow":
-      case "aria-valuetext":
-      case "ariaExpanded":
-      case "ariaLabel":
-      case "ariaLabelledBy":
-      case "background":
-      case "backgroundColor":
-      case "backgroundImage":
-      case "borderRadius":
-      case "data-e2e":
-      case "data-testid":
-      case "e2eTag":
-      case "ellipsis":
-      case "ellipsisLine":
-      case "ellipsisNarrow":
-      case "ellipsisOnNarrow":
-      case "shape":
-      case "tiltX":
-      case "tiltY":
-      case "transparent":
-      case "twist":
-        return 0;
-      default:
-        return b in a;
-    }
-  }
-  Object.prototype.hasOwnProperty = function (a) { return has(this, a) }
-  Object.prototype.hasOwnProperty.call = has;
-}
-
-/*
-IPがBotとして判定され検索が一切できなくなるため対応検討中
-おそらく本来不要なリクエストをいくつか送信しないといけない
-
-HTMLHeadElement.prototype.appendChild = a => {
-  let src = a.src;
-  src &&
-  src[111] != "z" && // src.slice(110, 114) != "/zti" &&
-  src[119] != "z" && // src.slice(118, 122) != "/zti" &&
-  document.head.insertBefore(a, null);
-}
-{
-  // Object.seal = a => a;
-  // var z = {};
-  Object.prototype.hasOwnProperty.call = (a, b) => {
-    switch (b) {
       case "abTestVersion":
       case "alt":
       case "altKey":
@@ -99,30 +35,68 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "backgroundColor":
       case "backgroundImage":
       case "borderRadius":
-      case "botType":
-      case "btnShow":
-      case "dangerouslyExposeHtml":
-      case "dangerouslySetInnerHTML":
-      case "downloadLink":
-      case "downloadSetting":
       case "color":
-      case "content-type":
-      case "contentType":
       case "ctrlKey":
       case "data-e2e":
       case "data-testid":
-      case "dir":
-      case "disableAutoLang":
-      case "disableDownload":
-      case "disabled":
-      // case "draggingPercentCb":
-      // case "draggingStateCb":
       case "e2eData":
       case "e2eTag":
       case "ellipsis":
       case "ellipsisLine":
       case "ellipsisNarrow":
       case "ellipsisOnNarrow":
+      case "letterSpacing":
+      case "lineClamp":
+      case "meta":
+      case "metaKey":
+      case "shape":
+      case "shiftKey":
+      case "tabIndex":
+      case "tiltX":
+      case "tiltY":
+      case "title":
+      case "transparent":
+      case "twist":
+      case "xmlns":
+        return 0;
+      default:
+        return b in a;
+    }
+  }
+  Object.prototype.hasOwnProperty = function (a) { return has(this, a) }
+  Object.prototype.hasOwnProperty.call = has;
+}
+
+/*
+IPがBotとして判定され検索が一切できなくなるため対応検討中
+おそらく本来不要なリクエストをいくつか送信しないといけない
+
+HTMLHeadElement.prototype.appendChild = a => {
+  let src = a.src;
+  src &&
+  src[111] != "z" && // src.slice(110, 114) != "/zti" &&
+  src[119] != "z" && // src.slice(118, 122) != "/zti" &&
+  document.head.insertBefore(a, null);
+}
+{
+  // Object.seal = a => a;
+  // var z = {};
+  Object.prototype.hasOwnProperty.call = (a, b) => {
+    switch (b) {
+      case "botType":
+      case "btnShow":
+      case "dangerouslyExposeHtml":
+      case "dangerouslySetInnerHTML":
+      case "downloadLink":
+      case "downloadSetting":
+      case "content-type":
+      case "contentType":
+      case "dir":
+      case "disableAutoLang":
+      case "disableDownload":
+      case "disabled":
+      // case "draggingPercentCb":
+      // case "draggingStateCb":
       case "error":
       case "fetchPriority":
       // case "handleDownload":
@@ -142,13 +116,8 @@ HTMLHeadElement.prototype.appendChild = a => {
       // case "labelType":
       case "lang":
       case "language":
-      case "letterSpacing":
-      case "lineClamp":
-      case "loading":
       case "logger":
       // case "maskCloseable":
-      case "meta":
-      case "metaKey":
       case "mobileGuessSearchList":
       case "mobileSugList":
       case "muted":
@@ -177,33 +146,24 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "role":
       case "selectedTranslationLanguage":
       case "setPlaceholderComplete":
-      case "shape":
       case "shareUrl":
-      case "shiftKey":
       case "shouldAnimate":
       case "showCaption":
       case "showLogo":
       case "showRelated":
       // case "sideCar":
-      case "tabIndex":
       // case "tabKey":
       case "textDecoration":
       // case "teaReport":
       // case "theme":
-      case "tiltX":
-      case "tiltY":
-      case "title":
       case "toastDuration":
       case "toastNotShown":
       case "toastOptions":
       case "toastTheme":
       case "toasterTheme":
-      case "twist":
       case "translationDisableLanguages":
-      case "transparent":
       case "userAgent":
       case "volumeInfo":
-      case "xmlns":
         return 0;
       case "Webapp":
       case "constructor":
