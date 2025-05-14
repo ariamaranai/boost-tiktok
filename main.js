@@ -40,6 +40,7 @@ MediaSource.isTypeSupported = () => 1;
       case "data-e2e":
       case "data-testid":
       case "dir":
+      case "disabled":
       case "downloadLink":
       case "downloadSetting":
       case "e2eData":
@@ -62,6 +63,7 @@ MediaSource.isTypeSupported = () => 1;
       case "onCut":
       case "onTouchStart":
       case "shape":
+      case "shareUrl":
       case "shiftKey":
       case "tabIndex":
       case "tiltX":
@@ -71,6 +73,10 @@ MediaSource.isTypeSupported = () => 1;
       case "twist":
       case "xmlns":
         return 0;
+      case "Webapp":
+      case "constructor":
+      case "ja-JP":
+        return 1;
       default:
         return b in a;
     }
@@ -103,7 +109,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "contentType":
       case "disableAutoLang":
       case "disableDownload":
-      case "disabled":
       // case "draggingPercentCb":
       // case "draggingStateCb":
       case "error":
@@ -144,7 +149,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "role":
       case "selectedTranslationLanguage":
       case "setPlaceholderComplete":
-      case "shareUrl":
       case "shouldAnimate":
       case "showCaption":
       case "showLogo":
@@ -163,9 +167,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "userAgent":
       case "volumeInfo":
         return 0;
-      case "Webapp":
-      case "constructor":
-      case "ja-JP":
       case "keySeparator":
       case "supportAVIF":
       case "supportWebP":

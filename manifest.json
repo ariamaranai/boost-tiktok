@@ -7,7 +7,7 @@
     "128": "128.png"
   },
   "omnibox": {
-    "keyword": "tk"
+    "keyword": "ti"
   },
   "background": {
     "service_worker": "bg.js"
