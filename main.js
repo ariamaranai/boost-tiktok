@@ -39,16 +39,28 @@ MediaSource.isTypeSupported = () => 1;
       case "ctrlKey":
       case "data-e2e":
       case "data-testid":
+      case "dir":
+      case "downloadLink":
+      case "downloadSetting":
       case "e2eData":
       case "e2eTag":
       case "ellipsis":
       case "ellipsisLine":
       case "ellipsisNarrow":
       case "ellipsisOnNarrow":
+      case "fetchPriority":
+      case "isAndroid":
+      case "isIOS":
+      case "isMobile":
+      case "isMobileUiOptimize":
       case "letterSpacing":
       case "lineClamp":
       case "meta":
       case "metaKey":
+      case "onContextMenu":
+      case "onCopy":
+      case "onCut":
+      case "onTouchStart":
       case "shape":
       case "shiftKey":
       case "tabIndex":
@@ -87,30 +99,22 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "btnShow":
       case "dangerouslyExposeHtml":
       case "dangerouslySetInnerHTML":
-      case "downloadLink":
-      case "downloadSetting":
       case "content-type":
       case "contentType":
-      case "dir":
       case "disableAutoLang":
       case "disableDownload":
       case "disabled":
       // case "draggingPercentCb":
       // case "draggingStateCb":
       case "error":
-      case "fetchPriority":
       // case "handleDownload":
       // case "hoverTeaReportParams":
       case "hrefLang":
       case "isAd":
       case "isAds":
-      case "isAndroid":
       case "isBot":
       // case "isGuestMode": // Bug
       // case "isGuestModeUI": // Bug
-      case "isIOS":
-      case "isMobile":
-      case "isMobileUiOptimize":
       case "isSearchEngineBot":
       // case "label":
       // case "labelType":
@@ -122,9 +126,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "mobileSugList":
       case "muted":
       case "needAnimation":
-      case "onContextMenu":
-      case "onCopy":
-      case "onCut":
       case "onDragEnter":
       case "onError":
       case "onPlatformChange":
@@ -132,13 +133,10 @@ HTMLHeadElement.prototype.appendChild = a => {
       // case "onTabChange":
       // case "onTabClick":
       // case "onTabListKeyDown":
-      case "onTouchStart":
       case "onVideoError":
       case "onerror":
       case "report":
       case "reportParams":
-      case "scrollWidth":
-      case "scrollbar":
       case "seo_vidab":
       case "shouldReport":
       // case "rel":
