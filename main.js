@@ -3,7 +3,6 @@ MediaSource.isTypeSupported = () => 1;
 {
   let has = (a, b) => {
     switch (b) {
-      case "abTestVersion":
       case "alt":
       case "altKey":
       case "aria-activedescendant":
@@ -63,7 +62,7 @@ MediaSource.isTypeSupported = () => 1;
       case "onCut":
       case "onTouchStart":
       case "shape":
-      case "shareUrl":
+      // case "shareUrl": 有効にすると不明なエラーが発生しましたと表示されることがある
       case "shiftKey":
       case "tabIndex":
       case "tiltX":
@@ -86,9 +85,6 @@ MediaSource.isTypeSupported = () => 1;
 }
 
 /*
-IPがBotとして判定され検索が一切できなくなるため対応検討中
-おそらく本来不要なリクエストをいくつか送信しないといけない
-
 HTMLHeadElement.prototype.appendChild = a => {
   let src = a.src;
   src &&
