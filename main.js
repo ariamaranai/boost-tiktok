@@ -36,6 +36,8 @@ MediaSource.isTypeSupported = () => 1;
       case "borderRadius":
       case "color":
       case "ctrlKey":
+      case "dangerouslyExposeHtml":
+      case "dangerouslySetInnerHTML":
       case "data-e2e":
       case "data-testid":
       case "dir":
@@ -61,7 +63,9 @@ MediaSource.isTypeSupported = () => 1;
       case "onContextMenu":
       case "onCopy":
       case "onCut":
+      case "onError":
       case "onTouchStart":
+      case "onerror":
       case "shape":
       case "shareUrl":
       case "shiftKey":
@@ -105,8 +109,6 @@ HTMLHeadElement.prototype.appendChild = a => {
     switch (b) {
       case "botType":
       case "btnShow":
-      case "dangerouslyExposeHtml":
-      case "dangerouslySetInnerHTML":
       case "content-type":
       case "contentType":
       case "disableAutoLang":
@@ -133,14 +135,12 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "muted":
       case "needAnimation":
       case "onDragEnter":
-      case "onError":
       case "onPlatformChange":
       // case "onTab":
       // case "onTabChange":
       // case "onTabClick":
       // case "onTabListKeyDown":
       case "onVideoError":
-      case "onerror":
       case "report":
       case "reportParams":
       case "seo_vidab":
