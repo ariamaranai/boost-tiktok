@@ -1,6 +1,6 @@
 MediaSource.isTypeSupported = () => 1;
-
 {
+  // var z = {};
   let has = (a, b) => {
     switch (b) {
       case "alt":
@@ -53,6 +53,7 @@ MediaSource.isTypeSupported = () => 1;
       case "isIOS":
       case "isMobile":
       case "isMobileUiOptimize":
+      case "language":
       case "letterSpacing":
       case "lineClamp":
       case "meta":
@@ -62,21 +63,26 @@ MediaSource.isTypeSupported = () => 1;
       case "onCut":
       case "onTouchStart":
       case "shape":
-      // case "shareUrl": 有効にすると不明なエラーが発生しましたと表示されることがある
+      case "shareUrl":
       case "shiftKey":
+      case "supportWebP":
       case "tabIndex":
+      case "textDecoration":
+      // case "textDirection":
       case "tiltX":
       case "tiltY":
       case "title":
       case "transparent":
       case "twist":
+      case "volume":
+      case "volumeInfo":
       case "xmlns":
         return 0;
-      case "Webapp":
-      case "constructor":
       case "ja-JP":
+      case "supportAVIF":
         return 1;
       default:
+        // b && typeof b == "string" && b.length > 2 && (z[b] ??= 0, ++z[b]);
         return b in a;
     }
   }
@@ -120,7 +126,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       // case "label":
       // case "labelType":
       case "lang":
-      case "language":
       case "logger":
       // case "maskCloseable":
       case "mobileGuessSearchList":
@@ -161,11 +166,8 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "toasterTheme":
       case "translationDisableLanguages":
       case "userAgent":
-      case "volumeInfo":
         return 0;
       case "keySeparator":
-      case "supportAVIF":
-      case "supportWebP":
         return 1;
       default:
         // b.length > 2 && (z[b] ? ++z[b] : z[b] = 1);
