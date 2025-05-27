@@ -41,6 +41,7 @@ MediaSource.isTypeSupported = () => 1;
       case "dangerouslySetInnerHTML":
       case "data-e2e":
       case "data-testid":
+      case "decoding":
       case "dir":
       case "disabled":
       case "downloadLink":
@@ -59,6 +60,7 @@ MediaSource.isTypeSupported = () => 1;
       case "language":
       case "letterSpacing":
       case "lineClamp":
+      case "loading":
       case "meta":
       case "metaKey":
       case "muted":
@@ -158,7 +160,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       case "showRelated":
       // case "sideCar":
       // case "tabKey":
-      case "textDecoration":
       // case "teaReport":
       // case "theme":
       case "toastDuration":
