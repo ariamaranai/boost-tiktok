@@ -30,6 +30,7 @@ MediaSource.isTypeSupported = () => 1;
       case "ariaLabelledBy":
       case "autoComplete":
       case "autoFocus":
+      case "autoPlay":
       case "background":
       case "backgroundColor":
       case "backgroundImage":
@@ -60,6 +61,7 @@ MediaSource.isTypeSupported = () => 1;
       case "lineClamp":
       case "meta":
       case "metaKey":
+      case "muted":
       case "onContextMenu":
       case "onCopy":
       case "onCut":
@@ -82,6 +84,7 @@ MediaSource.isTypeSupported = () => 1;
       case "volumeInfo":
       case "xmlns":
         return 0;
+      case "isDark":
       case "ja-JP":
       case "supportAVIF":
         return 1;
@@ -132,7 +135,6 @@ HTMLHeadElement.prototype.appendChild = a => {
       // case "maskCloseable":
       case "mobileGuessSearchList":
       case "mobileSugList":
-      case "muted":
       case "needAnimation":
       case "onDragEnter":
       case "onPlatformChange":
